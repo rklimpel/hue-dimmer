@@ -38,7 +38,10 @@ for brightness in range(value_from,value_to,value_inc):
 	print("Set brightness to " + str(brightness))
 	for light in lights:
 		light.transitiontime = 3
-		light.brightness = brightness
+		if dim_direction == "down" and brightness < light.brightness:
+			light.brightness = brightness
+		elif dim_direction == "up" and brightness > light.brightness:
+			light.brightness = brightness
 	time.sleep(step_time)
 
 if dim_direction == "down":
