@@ -13,8 +13,8 @@ b.connect()
 
 lights = b.lights
 
-dim_time = 60*1
-step_time = dim_time/(255/5)
+dim_time = 60*30
+step_time = dim_time/(255/1)
 if step_time >= 30:
 	trans_time = 30
 	wait_time = step_time - trans_time
@@ -29,10 +29,10 @@ print("dim_time: " + str(dim_time))
 for light in lights:
 	light.on = True
 
-for brightness in range(255,0,-5):
+for brightness in range(255,0,-1):
 	print("Set brightness to " + str(brightness))
 	for light in lights:
-		light.transitiontime = trans_time
+		light.transitiontime = 3
 		light.brightness = brightness
 	time.sleep(wait_time)
 
